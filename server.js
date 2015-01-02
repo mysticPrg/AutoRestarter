@@ -5,34 +5,36 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
 var request = require('request');
+var runCmd = require('./runCmd');
 
 app.use(bodyParser.json());
 
 app.post('/', function (req, res) {
+    console.log('Found new image!');
+
     res.writeHead(200, {
         'Content-Type': 'application/json'
     });
 
-    var cb_url = req.body.callback_url;
-    var cb_data = {
-        state: 'success',
-        description: 'Dockerhub webhook test'
-    };
+    runCmd('restart', function () {
+        var cb_url = req.body.callback_url;
+        var cb_data = {
+            state: 'success',
+            description: 'Dockerhub webhook test'
+        };
 
-    console.log('url: ' + cb_url);
-    console.log('res: ' + cb_data);
-
-    request({
-        url: cb_url,
-        json: cb_data,
-        method: 'POST'
-    }, function (err, res, body) {
-        if (!err && res.statusCode == 200) {
-            console.log(body);
-        }
+        request({
+            url: cb_url,
+            json: cb_data,
+            method: 'POST'
+        }, function (err, res) {
+            if (!err && res.statusCode == 200) {
+                console.log('Success restart application');
+            }
+        });
     });
 
     res.end();
 });
 
-app.listen(8123);
+app.listen(8124);

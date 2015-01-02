@@ -2,7 +2,7 @@
   "name": "AutoRestarter",
   "version": "0.0.0",
   "description": "Auto restart from DockerHub",
-  "repository": "",
+  "repository": "https://github.com/mysticPrg/AutoRestarter",
   "main": "main.js",
   "author": "mysticPrg <mysticPrg@gmail.com>",
   "license": "BSD-2-Clause",
