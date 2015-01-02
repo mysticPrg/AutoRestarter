@@ -6,4 +6,6 @@
 var runCmd = require('./runCmd');
 
 var cmd = process.argv[2];
-runCmd(cmd);
+runCmd(cmd, function(err) {
+    console.log(err);
+});
