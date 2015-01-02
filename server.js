@@ -11,7 +11,7 @@ app.post('/', function(req, res) {
     res.writeHead(200, {
        'Content-Type': 'application/json'
     });
-    res.end(req.body.toString());
+    res.end(req.body.push_data.toString());
 });
 
 app.listen(8123);
