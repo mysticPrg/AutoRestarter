@@ -8,8 +8,11 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 app.post('/', function(req, res) {
+    res.writeHead(200, {
+       'Content-Type': 'application/json'
+    });
     res.write('send: ');
-    res.send(req.body);
+    res.end(req.body);
 });
 
 app.listen(8123);
