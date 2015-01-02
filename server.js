@@ -18,6 +18,10 @@ app.post('/', function (req, res) {
         state: 'success',
         description: 'Dockerhub webhook test'
     };
+
+    console.log('url: ' + cb_url);
+    console.log('res: ' + cb_data);
+
     request({
         url: cb_url,
         json: cb_data,
