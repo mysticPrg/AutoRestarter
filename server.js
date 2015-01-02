@@ -23,7 +23,7 @@ app.post('/', function (req, res) {
         json: cb_data,
         method: 'POST'
     }, function (err, res, body) {
-        if (!error && response.statusCode == 200) {
+        if (!err && res.statusCode == 200) {
             console.log(body);
         }
     });
