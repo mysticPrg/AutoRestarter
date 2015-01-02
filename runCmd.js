@@ -2,8 +2,10 @@
  * Created by mysticprg on 15. 1. 3.
  */
 
+var execFile = require('child_process').execFile;
+
 function run_sh(cmd, callback) {
-    exec('./' + cmd + '.sh', callback);
+    execFile('./' + cmd + '.sh', callback);
 }
 
 module.exports = function (cmd, callback) {
