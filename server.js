@@ -3,8 +3,11 @@
  */
 
 var app = require('express')();
+var bodyParser = require('body-parser');
 
-app.get('/', function(req, res) {
+app.use(bodyParser.json());
+
+app.post('/', function(req, res) {
     res.write('send: ');
     res.send(req.body);
 });
