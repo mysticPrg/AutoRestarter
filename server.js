@@ -12,7 +12,10 @@ app.post('/', function(req, res) {
     res.writeHead(200, {
        'Content-Type': 'application/json'
     });
-    res.end(req.body.push_data.toString());
+    res.end({
+        state: 'success',
+        description: 'Dockerhub webhook test'
+    });
 });
 
 app.listen(8123);
